@@ -1,0 +1,1 @@
+# menadzer_lokatorow
