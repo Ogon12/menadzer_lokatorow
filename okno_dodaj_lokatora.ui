@@ -7,7 +7,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>647</width>
+    <width>702</width>
     <height>518</height>
    </rect>
   </property>
@@ -34,7 +34,7 @@
       <property name="title">
        <string>Dane medunkowe</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_Dane_osobowe">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_Nazwisko">
          <item>
@@ -309,6 +309,101 @@
          </item>
         </layout>
        </item>
+       <item>
+        <widget class="Line" name="line_9">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_data_dodana">
+           <property name="font">
+            <font>
+             <family>DejaVu Sans</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Ustawiona data: </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="font">
+            <font>
+             <family>DejaVu Sans</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="inputMethodHints">
+            <set>Qt::ImhDate</set>
+           </property>
+           <property name="maxLength">
+            <number>20</number>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="clearButtonEnabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_17">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_wyczysc_zapisana_date">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>DejaVu Sans</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Wyczyść</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
       </layout>
      </widget>
      <widget class="QGroupBox" name="groupBox_Rozliczenie">
@@ -322,7 +417,7 @@
       <property name="title">
        <string>Rozliczene</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_Rozliczenie">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_Stawka">
          <item>
@@ -493,6 +588,86 @@
             <cstring>radioButton_Stawka_miesieczna</cstring>
            </property>
           </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_8">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QCheckBox" name="checkBox_kaucja">
+           <property name="font">
+            <font>
+             <family>DejaVu Sans</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>Kaucja</string>
+           </property>
+           <property name="tristate">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_kaucja_pln">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>60</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_kaucja_zl">
+           <property name="font">
+            <font>
+             <family>DejaVu Sans</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>zł</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_18">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </item>
@@ -943,17 +1118,23 @@
   <tabstop>lineEdit_Imie</tabstop>
   <tabstop>lineEdit_Nr_pokoju</tabstop>
   <tabstop>dateEdit</tabstop>
+  <tabstop>pushButton_zatwierdz_date</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>pushButton_wyczysc_zapisana_date</tabstop>
   <tabstop>radioButton_Stawka_miesieczna</tabstop>
   <tabstop>radioButton_Stawk_dzienna</tabstop>
   <tabstop>lineEdit_Stawka</tabstop>
+  <tabstop>checkBox_kaucja</tabstop>
+  <tabstop>lineEdit_kaucja_pln</tabstop>
   <tabstop>radioButton_Prywatnie</tabstop>
   <tabstop>radioButton_Pracodawca</tabstop>
-  <tabstop>checkBox_dodatkow_informacje</tabstop>
-  <tabstop>plainTextEdit_Uwagi_o_lokatorze</tabstop>
+  <tabstop>lineEdit_Nazwa_pracodawcy</tabstop>
   <tabstop>checkBox_Internet</tabstop>
   <tabstop>lineEdit_MAC_ADDRES</tabstop>
-  <tabstop>pushButton_Anuluj</tabstop>
+  <tabstop>checkBox_dodatkow_informacje</tabstop>
+  <tabstop>plainTextEdit_Uwagi_o_lokatorze</tabstop>
   <tabstop>pushButton_wyjdz_zapisz</tabstop>
+  <tabstop>pushButton_Anuluj</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -964,12 +1145,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>313</x>
-     <y>230</y>
+     <x>377</x>
+     <y>253</y>
     </hint>
     <hint type="destinationlabel">
-     <x>388</x>
-     <y>231</y>
+     <x>416</x>
+     <y>254</y>
     </hint>
    </hints>
   </connection>
@@ -980,12 +1161,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>313</x>
-     <y>230</y>
+     <x>377</x>
+     <y>253</y>
     </hint>
     <hint type="destinationlabel">
-     <x>508</x>
-     <y>231</y>
+     <x>572</x>
+     <y>254</y>
     </hint>
    </hints>
   </connection>
@@ -996,12 +1177,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>38</x>
-     <y>230</y>
+     <x>48</x>
+     <y>253</y>
     </hint>
     <hint type="destinationlabel">
-     <x>28</x>
-     <y>280</y>
+     <x>49</x>
+     <y>465</y>
     </hint>
    </hints>
   </connection>
@@ -1012,12 +1193,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>103</x>
-     <y>230</y>
+     <x>113</x>
+     <y>253</y>
     </hint>
     <hint type="destinationlabel">
-     <x>286</x>
-     <y>289</y>
+     <x>307</x>
+     <y>465</y>
     </hint>
    </hints>
   </connection>
@@ -1029,17 +1210,33 @@
    <hints>
     <hint type="sourcelabel">
      <x>523</x>
-     <y>187</y>
+     <y>193</y>
     </hint>
     <hint type="destinationlabel">
      <x>629</x>
-     <y>187</y>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_wyczysc_zapisana_date</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>275</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>209</x>
+     <y>202</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="buttonGroup_Rozliczenie_prywatne_pracodawca"/>
   <buttongroup name="buttonGroup_Rozliczenie_miesieczne_dzienne"/>
+  <buttongroup name="buttonGroup_Rozliczenie_prywatne_pracodawca"/>
  </buttongroups>
 </ui>
