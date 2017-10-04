@@ -9,6 +9,9 @@
 #include "obsluga_czasu.h"
 #include "QMessageBox"
 #include "QStyle"
+#include <QCheckBox>
+#include <QDoubleValidator>
+#include "QValidator"
 
 Okno_dodaj_lokatora::Okno_dodaj_lokatora(QWidget *parent) :
     QDialog(parent),
@@ -22,8 +25,8 @@ Okno_dodaj_lokatora::Okno_dodaj_lokatora(QWidget *parent) :
     line_edit_podswietlenie_systemowe = "QLineEdit {background: ;}";
     obsluga_czasu Aktualna_data;
     ui->dateEdit->setDate(Aktualna_data.podaj_aktualna_date());
-
-
+    ui->lineEdit_Stawka->setValidator( new QDoubleValidator(0, 2000, 2, this) ); //wprowadza liczby z przecinkiem
+   ;
 }
 
 Okno_dodaj_lokatora::~Okno_dodaj_lokatora()
@@ -173,11 +176,24 @@ bool Okno_dodaj_lokatora::sprawdz_poprawnosc_danych()
      ui->dateEdit->setStyleSheet("QDateEdit {background: yellow}");
     }else
     {
+        str_poprawnosc_obowiazkowych_danych.id_data_meldunku = true;
         ui->pushButton_zatwierdz_date->setStyleSheet("QDateEdit { background: ");
+    }
+
+    if(ui->checkBox_kaucja->isChecked() && ui->lineEdit_kaucja_pln->text().isEmpty())
+    {
+       str_poprawnosc_obowiazkowych_danych.id_kaucja_zl = false;
+       ui->lineEdit_kaucja_pln->setStyleSheet(line_edit_podswietlenie_ostrzegawcze);
+    }else
+    {
+        str_poprawnosc_obowiazkowych_danych.id_kaucja_zl = true;
+        ui->lineEdit_kaucja_pln->setStyleSheet(line_edit_podswietlenie_systemowe);
     }
     qDebug() << "kod wyjscia sprawdzania danych: " << kod_wyjscia;
     return kod_wyjscia;
 }
+
+
 
 
 

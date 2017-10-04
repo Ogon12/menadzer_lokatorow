@@ -17,7 +17,7 @@ Operacje_na_plikach::Operacje_na_plikach(QWidget *parent) : QMainWindow(parent)
 }
 Operacje_na_plikach::~Operacje_na_plikach()
 {
-    qDebug() << "Destruktor: Operacje na plikach";
+
 }
 
 
@@ -54,7 +54,7 @@ bool Operacje_na_plikach::dopisz_nowego_lokatora(QString dane)
         qDebug("plik istnieje");
     }
 
-    QFile baza_lokatorow("./baza_lokatorow.txt");
+    QFile baza_lokatorow(sciezka_nazwa_bazy_lokatorow);
     if (!baza_lokatorow.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append))
     {
         qDebug() << "Blad otwarcia pliku";
@@ -82,7 +82,7 @@ void Operacje_na_plikach::pobierz_sciezke_bazy_lokatorow(QString &nowa_sciezka_i
     sciezka_nazwa_bazy_lokatorow = nowa_sciezka_i_nazwa_bazy_lokatorow;
 }
 
-bool Operacje_na_plikach::sprawdz_czy_plik_istnieje(QString sciezka_nazwa_pliku)
+bool Operacje_na_plikach::sprawdz_czy_plik_istnieje(QString &sciezka_nazwa_pliku)
 {
     if(QFile::exists(sciezka_nazwa_pliku)){
         return true;

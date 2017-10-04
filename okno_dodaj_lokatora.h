@@ -34,6 +34,8 @@ private:
       int nr_pokoju;
       int stawka;
       int kto_plci;
+      bool czy_wplacona_kaucja;
+      int kaucja_zl;
 
     } str_dane_meldunkowe;
 
@@ -49,6 +51,8 @@ private:
         bool id_stawka;
         bool id_kto_placi;
         bool id_nazwa_pracodawcy;
+        bool id_czy_placil_kaucje;
+        bool id_kaucja_zl;
     } str_poprawnosc_obowiazkowych_danych;
 
 private slots:
@@ -68,6 +72,8 @@ private slots:
     void on_radioButton_Pracodawca_clicked();
 
     void on_pushButton_zatwierdz_date_clicked();
+
+
 
 private:
     Ui::Okno_dodaj_lokatora *ui;

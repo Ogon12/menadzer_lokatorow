@@ -24,7 +24,7 @@ public:
 
 public:
     void pobierz_sciezke_bazy_lokatorow(QString &sciezka_i_nazwa_bazy_lokatorow);
-    bool sprawdz_czy_plik_istnieje(QString sciezka_nazwa_pliku);
+    bool sprawdz_czy_plik_istnieje(QString &sciezka_nazwa_pliku);
     bool plik_wczytaj();
     bool dopisz_nowego_lokatora(QString dane);
     QString wyszukaj_lokatora(QString parametr_wyszukiwania);

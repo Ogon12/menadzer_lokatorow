@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>702</width>
-    <height>518</height>
+    <width>713</width>
+    <height>558</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -202,6 +202,9 @@
            </property>
            <property name="inputMethodHints">
             <set>Qt::ImhFormattedNumbersOnly</set>
+           </property>
+           <property name="inputMask">
+            <string>00</string>
            </property>
           </widget>
          </item>
@@ -554,9 +557,15 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
-             <width>60</width>
+             <width>80</width>
              <height>16777215</height>
             </size>
            </property>
@@ -567,8 +576,14 @@
              <bold>false</bold>
             </font>
            </property>
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
            <property name="inputMethodHints">
             <set>Qt::ImhFormattedNumbersOnly|Qt::ImhPreferNumbers</set>
+           </property>
+           <property name="maxLength">
+            <number>7</number>
            </property>
           </widget>
          </item>
@@ -639,10 +654,22 @@
              <bold>false</bold>
             </font>
            </property>
+           <property name="inputMask">
+            <string/>
+           </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="label_kaucja_zl">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <family>DejaVu Sans</family>
@@ -652,7 +679,7 @@
             </font>
            </property>
            <property name="text">
-            <string>zł</string>
+            <string>zł*</string>
            </property>
           </widget>
          </item>
@@ -972,8 +999,11 @@
            <height>16777215</height>
           </size>
          </property>
+         <property name="inputMask">
+          <string>HH:HH:HH:HH:HH:HH</string>
+         </property>
          <property name="maxLength">
-          <number>32</number>
+          <number>17</number>
          </property>
         </widget>
        </item>
@@ -1209,12 +1239,12 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>523</x>
-     <y>193</y>
+     <x>565</x>
+     <y>227</y>
     </hint>
     <hint type="destinationlabel">
-     <x>629</x>
-     <y>193</y>
+     <x>671</x>
+     <y>227</y>
     </hint>
    </hints>
   </connection>
@@ -1225,12 +1255,44 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>275</x>
-     <y>202</y>
+     <x>329</x>
+     <y>227</y>
     </hint>
     <hint type="destinationlabel">
-     <x>209</x>
-     <y>202</y>
+     <x>236</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_kaucja</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>lineEdit_kaucja_pln</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>392</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_kaucja</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>label_kaucja_zl</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>409</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>521</x>
+     <y>134</y>
     </hint>
    </hints>
   </connection>
