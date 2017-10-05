@@ -73,7 +73,9 @@ private slots:
 
     void on_pushButton_zatwierdz_date_clicked();
 
+    void on_pushButton_wyczysc_zapisana_date_clicked();
 
+    void on_checkBox_kaucja_clicked();
 
 private:
     Ui::Okno_dodaj_lokatora *ui;

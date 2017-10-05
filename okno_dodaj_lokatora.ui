@@ -242,7 +242,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Data meldunku*:</string>
+            <string>Data meldunku:</string>
            </property>
           </widget>
          </item>
@@ -308,6 +308,12 @@
            <property name="text">
             <string>Zatwierdź</string>
            </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
         </layout>
@@ -332,16 +338,18 @@
             </font>
            </property>
            <property name="text">
-            <string>Ustawiona data: </string>
+            <string>Ustawiona data*: </string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit">
+          <widget class="QLineEdit" name="lineEdit_zatwierdzona_data">
            <property name="font">
             <font>
              <family>DejaVu Sans</family>
              <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
             </font>
            </property>
            <property name="inputMethodHints">
@@ -354,7 +362,7 @@
             <bool>true</bool>
            </property>
            <property name="clearButtonEnabled">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -395,6 +403,9 @@
            </property>
            <property name="text">
             <string>Wyczyść</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -1149,7 +1160,7 @@
   <tabstop>lineEdit_Nr_pokoju</tabstop>
   <tabstop>dateEdit</tabstop>
   <tabstop>pushButton_zatwierdz_date</tabstop>
-  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_zatwierdzona_data</tabstop>
   <tabstop>pushButton_wyczysc_zapisana_date</tabstop>
   <tabstop>radioButton_Stawka_miesieczna</tabstop>
   <tabstop>radioButton_Stawk_dzienna</tabstop>
@@ -1251,7 +1262,7 @@
   <connection>
    <sender>pushButton_wyczysc_zapisana_date</sender>
    <signal>clicked()</signal>
-   <receiver>lineEdit</receiver>
+   <receiver>lineEdit_zatwierdzona_data</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1259,7 +1270,7 @@
      <y>227</y>
     </hint>
     <hint type="destinationlabel">
-     <x>236</x>
+     <x>233</x>
      <y>227</y>
     </hint>
    </hints>
@@ -1298,7 +1309,7 @@
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="buttonGroup_Rozliczenie_miesieczne_dzienne"/>
   <buttongroup name="buttonGroup_Rozliczenie_prywatne_pracodawca"/>
+  <buttongroup name="buttonGroup_Rozliczenie_miesieczne_dzienne"/>
  </buttongroups>
 </ui>

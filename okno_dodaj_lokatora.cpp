@@ -3,7 +3,7 @@
 #include <QString>
 #include <QDebug>
 #include "QDialog"
-//#include <QDateTime>
+#include <QDateTime>
 #include "operacje_na_plikach.h"
 #include "mainwindow.h"
 #include "obsluga_czasu.h"
@@ -12,6 +12,8 @@
 #include <QCheckBox>
 #include <QDoubleValidator>
 #include "QValidator"
+
+
 
 Okno_dodaj_lokatora::Okno_dodaj_lokatora(QWidget *parent) :
     QDialog(parent),
@@ -26,7 +28,9 @@ Okno_dodaj_lokatora::Okno_dodaj_lokatora(QWidget *parent) :
     obsluga_czasu Aktualna_data;
     ui->dateEdit->setDate(Aktualna_data.podaj_aktualna_date());
     ui->lineEdit_Stawka->setValidator( new QDoubleValidator(0, 2000, 2, this) ); //wprowadza liczby z przecinkiem
-   ;
+    //ui->pushButton_zatwierdz_date->setCheckable(false);
+//    connect(ui->dateEdit, SIGNAL(), this, SLOT(zmieniono_parametr()));
+
 }
 
 Okno_dodaj_lokatora::~Okno_dodaj_lokatora()
@@ -39,8 +43,6 @@ Okno_dodaj_lokatora::~Okno_dodaj_lokatora()
 void Okno_dodaj_lokatora::on_pushButton_Anuluj_clicked()
 {
     emit Okno_dodaj_lokatora::reject();
-
-
 }
 
 
@@ -96,8 +98,8 @@ void Okno_dodaj_lokatora::on_pushButton_wyjdz_zapisz_clicked()
 
 void Okno_dodaj_lokatora::on_pushButton_zatwierdz_date_clicked()
 {
-    ui->pushButton_zatwierdz_date->setDown(true);
     ui->pushButton_zatwierdz_date->setText("Zapisana");
+    ui->lineEdit_zatwierdzona_data->setText(ui->dateEdit->text());
 }
 
 void Okno_dodaj_lokatora::ustaw_sciezke_i_nazwe_bazy_danych(QString &nowa_sciezka_i_nazwa_bazy_danych)
@@ -170,14 +172,14 @@ bool Okno_dodaj_lokatora::sprawdz_poprawnosc_danych()
         if(kod_wyjscia == true) kod_wyjscia = true;
     }
 
-    if(!ui->pushButton_zatwierdz_date->isDown())
+    if(ui->lineEdit_zatwierdzona_data->text().isEmpty())
     {
      str_poprawnosc_obowiazkowych_danych.id_data_meldunku = false;
-     ui->dateEdit->setStyleSheet("QDateEdit {background: yellow}");
+     ui->lineEdit_zatwierdzona_data->setStyleSheet(line_edit_podswietlenie_ostrzegawcze);
     }else
     {
         str_poprawnosc_obowiazkowych_danych.id_data_meldunku = true;
-        ui->pushButton_zatwierdz_date->setStyleSheet("QDateEdit { background: ");
+        ui->lineEdit_zatwierdzona_data->setStyleSheet(line_edit_podswietlenie_systemowe);
     }
 
     if(ui->checkBox_kaucja->isChecked() && ui->lineEdit_kaucja_pln->text().isEmpty())
@@ -196,6 +198,16 @@ bool Okno_dodaj_lokatora::sprawdz_poprawnosc_danych()
 
 
 
+void Okno_dodaj_lokatora::on_pushButton_wyczysc_zapisana_date_clicked()
+{
+    ui->pushButton_zatwierdz_date->setText("Zatwierdź");
+    ui->pushButton_zatwierdz_date->setDown(false);
+}
 
-
-
+void Okno_dodaj_lokatora::on_checkBox_kaucja_clicked()
+{
+    if(!ui->checkBox_kaucja->isChecked())
+    {
+        ui->lineEdit_kaucja_pln->setStyleSheet(line_edit_podswietlenie_systemowe);
+    }
+}
