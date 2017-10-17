@@ -44,7 +44,7 @@ void MainWindow::on_pushButton_Dodaj_lokatora_clicked()
     }else
     {
 
-        qDebug() << "plik nie istnieje " << "sciezka: " << sciezka_nazwa_pliku_bazy_lokatorow;
+        qDebug() << "Otwieranie okna dodaj lokatora. Plik nie istnieje " << "sciezka: " << sciezka_nazwa_pliku_bazy_lokatorow;
         //system("pwd");
         //qDebug() << "Polecene ls: " << system("ls") << "Polecenie Pwd: " << system("pwd");
         QMessageBox::information(this, tytul_okna_informacyjengo, informacje_o_bledzie_dostepu_do_bazy);
